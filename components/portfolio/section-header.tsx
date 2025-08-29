@@ -23,7 +23,9 @@ export function SectionHeader({
         {eyebrow}
       </Reveal>
       <Reveal variant="pop" delay={80}>
-        <h2 className="text-2xl md:text-3xl font-semibold mt-1">{title}</h2>
+        <h2 className="text-2xl md:text-3xl font-semibold mt-1">
+          <span className="link-underline">{title}</span>
+        </h2>
       </Reveal>
     </div>
   )

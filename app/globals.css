@@ -205,6 +205,54 @@
   .text-rainbow-btn:hover {
     opacity: 0.9;
   }
+
+  /* Slide-in underline for text (works on any element) */
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    transition: background-size 250ms ease;
+  }
+  .link-underline:hover {
+    background-size: 100% 2px;
+  }
+
+  /* Card lift micro-interaction */
+  .card-animated {
+    transition: transform 200ms ease, box-shadow 200ms ease, ring-color 200ms ease;
+  }
+  .card-animated:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+  }
+
+  /* Subtle diagonal shine on hover (for cards/buttons wrappers) */
+  .shine-on-hover {
+    position: relative;
+    overflow: hidden;
+  }
+  .shine-on-hover::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -150%;
+    width: 120%;
+    height: 200%;
+    background: linear-gradient(
+      120deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.08) 40%,
+      rgba(255, 255, 255, 0.18) 50%,
+      rgba(255, 255, 255, 0.08) 60%,
+      transparent 100%
+    );
+    transform: skewX(-10deg);
+    pointer-events: none;
+  }
+  .shine-on-hover:hover::after {
+    animation: shineSweep 900ms ease;
+  }
 }
 
 @keyframes rainbowShift {
@@ -213,5 +261,14 @@
   }
   100% {
     background-position: 100% 50%;
+  }
+}
+
+@keyframes shineSweep {
+  from {
+    left: -150%;
+  }
+  to {
+    left: 150%;
   }
 }

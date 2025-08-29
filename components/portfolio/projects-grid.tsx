@@ -28,7 +28,8 @@ export function ProjectsGrid() {
       {projects.map((p) => (
         <Card
           key={p.title}
-          className="group transition-all duration-200 hover:-translate-y-1 hover:shadow-md hover:ring-1 hover:ring-primary/25"
+          /* add lift + shine hover animations and keep subtle ring on hover */
+          className="group card-animated shine-on-hover hover:ring-1 hover:ring-primary/25 transition-colors"
         >
           <CardHeader>
             <CardTitle className="text-lg">{p.title}</CardTitle>
@@ -39,7 +40,8 @@ export function ProjectsGrid() {
               {p.tags.map((t) => (
                 <span
                   key={t}
-                  className="inline-flex items-center rounded-full bg-primary/10 text-primary px-2.5 py-0.5 text-xs transition-transform duration-200 hover:scale-105"
+                  /* tiny float on hover for tags */
+                  className="inline-flex items-center rounded-full bg-primary/10 text-primary px-2.5 py-0.5 text-xs transition-transform duration-200 hover:-translate-y-0.5"
                 >
                   {t}
                 </span>
@@ -48,7 +50,8 @@ export function ProjectsGrid() {
             {p.href && (
               <Link
                 href={p.href}
-                className="mt-3 inline-block text-sm text-primary transition-transform duration-200 group-hover:translate-x-0.5 hover:underline"
+                /* animated underline instead of generic underline */
+                className="mt-3 inline-block text-sm text-primary link-underline"
               >
                 View repo/demo →
               </Link>
